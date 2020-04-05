@@ -1,0 +1,12 @@
+npm init
+npm install webpack --save-dev
+npm install jquery --save
+npm uninstall jquery --save
+
+npm install //install all needed dependecies
+
+npm install babel-preset-env babel-loader --save-dev
+
+npm run start
+
+babel-polyfill
