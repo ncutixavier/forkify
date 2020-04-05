@@ -1,21 +1,26 @@
 export const elements = {
-    searchFrom:document.querySelector('.search'),
-    searchRes:document.querySelector('.results'),
-    searchInput:document.querySelector('.search__field'),
-    searchResList:document.querySelector('.results__list')
+    searchFrom: document.querySelector('.search'),
+    searchRes: document.querySelector('.results'),
+    searchInput: document.querySelector('.search__field'),
+    searchResList: document.querySelector('.results__list')
 }
 
-export const elementString={
-    loader:'loader'
+export const elementString = {
+    loader: 'loader'
 }
 
-export const renderLoader=parent=>{
+export const renderLoader = parent => {
     const loader = `
     <div class="${elementString.loader}">
-        <svg class="search__icon">
+        <svg>
             <use href="img/icons.svg#icon-cw"></use>
         </svg>
     </div>
     `
-    parent
+    parent.insertAdjacentHTML("afterbegin",loader)
 }
+
+export const clearLoader = () =>{
+    const loader = document.querySelector(`.${elementString.loader}`)
+    if(loader) loader.parentElement.removeChild(loader)
+} 

@@ -10,7 +10,7 @@ multiply is ${searchView.mult(3,5)} and ${str}`)*/
 //const res = await axios(`https://forkify-api.herokuapp.com/api/search?&q=${this.query}`);;
 
 import Search from './models/Search'
-import { elements } from './views/base'
+import { elements, renderLoader, clearLoader } from './views/base'
 import * as searchView from './views/searchView'
 /*GLOBAL STATE APP
 * search object
@@ -31,11 +31,13 @@ const controlSearch = async () => {
         //3. prepare for ui
         searchView.clearInput()
         searchView.clearResult()
+        renderLoader(elements.searchRes)
 
         //4. search for recipes
         await state.search.getResults()
 
         //5. render results in ui
+        clearLoader()
         searchView.renderResults(state.search.result)
     }
 }
