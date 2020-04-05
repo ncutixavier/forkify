@@ -47,6 +47,15 @@ elements.searchFrom.addEventListener('submit', e => {
     controlSearch()
 })
 
+elements.searchResPage.addEventListener('click', e => {
+    const btn = e.target.closest('.btn-inline')
+    if (btn) {
+        const gotoPage = parseInt(btn.dataset.goto, 10)
+        console.log(gotoPage)
+        searchView.clearResult()
+        searchView.renderResults(state.search.result, gotoPage)
+    }
+})
 
 
 
